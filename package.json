@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 4567"
+    "start": "next start -p 4567",
+    "export":"next build && next export"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^28.0.0",
