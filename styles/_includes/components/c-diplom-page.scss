@@ -113,7 +113,7 @@
       img {
         width: 100%;
         @include media-breakpoint-down(xs) {
-          min-height: 73rem;
+          min-height: 60rem;
         }
       }
     }
@@ -131,12 +131,11 @@
         bottom: 6rem;
       }
       @include media-breakpoint-down(xs) {
-        left: 4rem;
-        right: 4rem;
+        left: 0rem;
+        right: 0rem;
       }
 
       &.production {
-        // &__action {
         input,
         textarea,
         .text-input-line,
@@ -301,9 +300,13 @@
     .c-select__trigger {
       color: #3e4b5d;
       padding: 0.5rem 1rem;
+
+      &.center{
+        justify-content: center;
+      }
     }
     &-option {
-      width: 4rem;
+      width: 5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -359,6 +362,10 @@
         font-size: 1.4rem;
         padding: 0.6rem 1rem;
         font-weight: 400;
+        img{
+          max-height: 30px;
+          margin: -15px;
+        }
         &:not(:last-child) {
           margin-right: 1rem;
         }

@@ -261,7 +261,7 @@ const Diploma = ({ propertiesData }) => {
                       <div className={`c-select ${sizesList ? "open" : ""}`}>
                         <div className="c-select__wrapper">
                           <div
-                            className="c-select__trigger"
+                            className="c-select__trigger center"
                             onClick={toggleSizes}
                           >
                             <span>{getActive("fontSize")}</span>
@@ -423,7 +423,14 @@ const Diploma = ({ propertiesData }) => {
                       className="e-btn e-btn--outline c-diplom-actions-btn"
                       onClick={downloadImage}
                     >
-                      Скачать
+                      {productionMode ? (
+                        <img
+                          src={"/images/useful/svg/loading.svg"}
+                          alt="loading"
+                        />
+                      ) : (
+                        "Скачать"
+                      )}
                     </button>
                     <button
                       type="button"
