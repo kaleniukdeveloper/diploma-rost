@@ -1,0 +1,22 @@
+.c-global-search {
+  &__wrapper {
+    margin-top: 2rem;
+  }
+  .global-search {
+    margin-top: 2rem;
+    @include media-breakpoint-down(md) {
+     margin: 1rem 0 0 0;
+    }
+    input{
+      border: 2px solid $athens-gray;
+    }
+  }
+  &__btn-menu.e-btn {
+    margin-top: 1rem;
+    width: 100%;
+    display: none;
+    @include media-breakpoint-down(md) {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.c-modal-send-invite {
+  .modal__title {
+    letter-spacing: -0.1px;
+  }
+  &__wrapper {
+    padding: 5.5rem 16rem 9.2rem;
+    @include media-breakpoint-down(md) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 3.5rem;
+  }
+  &__btn {
+    margin-top: 2rem;
+  }
+}

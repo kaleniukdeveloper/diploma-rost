@@ -1,0 +1,17 @@
+.c-ad {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+  &__item {
+    height: 14rem;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__link {
+    display: flex;
+    position: relative;
+    object-fit: cover;
+    height: 100%;
+  }
+}

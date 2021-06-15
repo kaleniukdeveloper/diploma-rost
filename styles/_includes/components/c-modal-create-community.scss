@@ -1,0 +1,51 @@
+.c-modal-create-community {
+  &__wrapper {
+    padding: 3rem 10rem 6.2rem;
+    position: relative;
+    @include media-breakpoint-down(sm) {
+      padding: 3rem;
+    }
+  }
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column-reverse;
+    }
+    &-col:not(:last-child){
+      margin-right: 2rem;
+      @include media-breakpoint-down(sm) {
+       margin-right: 0;
+      }
+    }
+  }
+  .modal-dialog {
+    max-width: 74rem;
+  }
+  &__head {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+  }
+  &__img {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #D9DEE2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .icon {
+      font-size: 2.5rem;
+    }
+  }
+  .modal__title {
+    margin-top: 2rem;
+  }
+}

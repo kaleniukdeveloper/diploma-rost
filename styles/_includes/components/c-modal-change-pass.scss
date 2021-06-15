@@ -1,0 +1,21 @@
+.c-modal-change-pass {
+  &__wrapper {
+    padding: 4.5rem 16rem 9rem;
+    @include media-breakpoint-down(md) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 4rem;
+    .e-btn--md {
+      @include media-breakpoint-down(md) {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+      }
+    }
+  }
+}

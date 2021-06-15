@@ -1,0 +1,95 @@
+.c-entry {
+  padding-top: 3.2rem;
+  max-width: 58rem;
+  margin: 0 auto;
+  @include media-breakpoint-down(sm) {
+    max-width: 100%;
+    padding-top: 2rem;
+  }
+  &__nav {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $cadet-blue;
+      height: 2px;
+    }
+    .nav-item {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+    .nav-link {
+      font-size: 2.4rem;
+      line-height: 3.3rem;
+      font-weight: bold;
+      color: $cadet-blue;
+      position: relative;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 1.8rem;
+      @include media-breakpoint-down(sm) {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+      }
+      &.active {
+        color: $woodsmoke;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 2px;
+          background-color: $oxford-blue;
+          z-index: 2;
+        }
+      }
+    }
+  }
+  &__content {
+    padding: 5rem 1rem;
+    @include media-breakpoint-down(sm) {
+      padding: 2rem 1rem;
+    }
+  }
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+    &--mt {
+      margin-top: 2rem;
+    }
+  }
+  &__agreement {
+    display: flex;
+    max-width: 26rem;
+    color: $woodsmoke;
+    @include media-breakpoint-down(sm) {
+      max-width: 100%;
+      margin-top: 3rem;
+    }
+  }
+  &__login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    .c-entry__line {
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .c-entry__line--mt{
+      margin-top: 1rem;
+    }
+  }
+}

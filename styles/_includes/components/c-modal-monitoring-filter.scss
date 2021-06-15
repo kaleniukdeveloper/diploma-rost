@@ -1,0 +1,94 @@
+.c-modal-monitoring-filter {
+  &__wrapper {
+    padding: 3rem 16.5rem 6.2rem;
+    position: relative;
+    @include media-breakpoint-down(md) {
+      padding: 3rem 5rem;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 3rem;
+    }
+  }
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column-reverse;
+    }
+    &-col:not(:last-child){
+      margin-right: 2rem;
+      @include media-breakpoint-down(sm) {
+       margin-right: 0;
+      }
+    }
+    &-col {
+      max-width: 50%;
+      width: 100%;
+      @include media-breakpoint-down(sm) {
+        max-width: 100%;
+      }
+    }
+  }
+  .modal-dialog {
+    max-width: 88rem;
+  }
+  button[type = submit] {
+    width: 100%;
+  }
+  button[type = reset] {
+    text-align: center;
+    color: #B0BAC4;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+  .form-row-two {
+    display: flex;
+    .form-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-grow: 1;
+      &:not(:last-child){
+        margin-right: 1.6rem;
+      }
+      .e-input {
+        width: 100%;
+        min-width: auto;
+      }
+      label {
+        margin-right: 1.2rem;
+      }
+      .form-control {
+        min-width: 9.5rem;
+        width: auto;
+        @include media-breakpoint-down(sm) {
+          flex-grow: 1;
+        }
+      }
+    }
+    .c-select {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      min-width: auto;
+      flex-grow: 1;
+      &:not(:last-child){
+        margin-right: 2rem;
+      }
+      &__wrapper {
+        min-width: 9.5rem;
+        width: 100%;
+      }
+      &__arrow {
+        display: none;
+      }
+    }
+    .e-label {
+      margin-right: 1rem;
+    }
+  }
+}

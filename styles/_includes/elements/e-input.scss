@@ -1,0 +1,83 @@
+.e-input {
+	border: 1px solid $oxford-blue;
+	outline: none;
+	box-shadow: none !important;
+	border-radius: 0;
+	padding: 0.85rem 1rem;
+	min-width: 26rem;
+	width: 100%;
+	font-size: 1.4rem;
+	-webkit-appearance: none !important;
+  -moz-appearance: none !important;
+	appearance: none !important;
+	background-clip: padding-box;
+	@include media-breakpoint-down(sm) {
+		min-width: 100%;
+	}
+	@media screen and (-webkit-min-device-pixel-ratio:0) { 
+		font-size: 1.4rem;
+	}
+	&:focus {
+		font-size: 1.4rem;
+	}
+	&::placeholder {
+		color: $cadet-blue;
+	}
+	&-autocomplete {
+		position: relative;
+		&__items {
+			position: absolute;
+			border: 1px solid $oxford-blue;
+			border-top: 0;
+			z-index: 99;
+			top: 100%;
+			left: 0;
+			right: 0;
+			max-height: 30rem;
+			overflow-y: auto;
+			div {
+				padding: 0.85rem 1rem;
+				color: $woodsmoke;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				border-bottom: 1px solid $oxford-blue;
+				background-color: $white;
+				&:last-child {
+					border-bottom: 0;
+				}
+				&:hover {
+					color: lighten($color: $woodsmoke, $amount: 40%);
+				}
+			}
+		}
+	}
+	&-file {
+		input {
+			display: none;
+		}
+		label {
+			cursor: pointer;
+		}
+	}
+}
+
+.global-search {
+	position: relative;
+	.icon-search {
+		position: absolute;
+		left: 2rem;
+		top: 50%;
+		transform: translateY(-50%);
+		color: #000;
+	}
+	.e-input--remove{
+		position: absolute;
+		right: 2rem;
+		top: 50%;
+		transform: translateY(-50%);
+		color: #000;
+	}
+	input {
+		padding: 0.85rem 4.5rem;
+	}
+}

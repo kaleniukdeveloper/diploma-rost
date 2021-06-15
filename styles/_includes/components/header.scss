@@ -1,0 +1,143 @@
+.c-header{
+		background-color: $oxford-blue;
+		padding: 1.2rem 0;
+		min-height: 6rem;
+		display: flex;
+		align-items: center;
+		&__mmenu {
+			align-items: center;
+			width: 3rem;
+			height: 2.5rem;
+			margin-right: 2.2rem;
+			display: none;
+			flex-shrink: 0;
+			@include media-breakpoint-down(md) {
+				display: flex;
+			}
+			span {
+				width: 100%;
+				height: 0.3rem;
+				background-color: $white;
+				border-radius: 0.8rem;
+				position: relative;
+				&:after , &:before {
+					content: '';
+					position: absolute;
+					width: 100%;
+					height: 0.3rem;
+					background-color: $white;
+					border-radius: 0.8rem;
+					left: 0;
+					right: 0;
+				}
+				&:after {
+					bottom: -0.8rem;
+				}
+				&:before {
+					top: -0.8rem;
+				}
+			}
+		}
+		&__logo {
+			display: flex;
+			flex-shrink: 0;
+			.icon-logo {
+				font-size: 1.718rem;
+			}
+		}
+		&-date {
+			display: flex;
+			align-items: center;
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+			&__ico {
+				font-size: 1.6rem;
+				display: flex;
+			}
+			&__text {
+				color: $white;
+				line-height: normal;
+				margin-left: 1.2rem;
+			}
+		}
+		&__actions {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+		&-notify {
+			margin-right: 4rem;
+			&__btn {
+				border: none;
+				background: none;
+				position: relative;
+				padding: 0;
+				.icon-notify {
+					font-size: 1.5rem;
+				}
+			}
+			&__count {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1rem;
+				font-weight: bold;
+				color: $white;
+				height: 2rem;
+				width: 2rem;
+				border-radius: 50%;
+				background-color: $dodger-blue;
+				position: absolute;
+				top: -0.7rem;
+				right: -1.4rem;
+			}
+		}
+		&-search {
+			&__form {
+				display: flex;
+				position: relative;
+				
+			}
+			&__field {
+				border-radius: 4.1rem;
+				border: none;
+				padding: 0.75rem 1.4rem 0.75rem 4rem;
+				width: 19rem;
+				@include media-breakpoint-down(sm) {
+					width: 3.6rem;
+					height: 3.6rem;
+					padding: 1rem;
+				}
+				&::placeholder {
+					color: $oxford-blue;
+					@include media-breakpoint-down(sm) {
+						color: transparent;
+					}
+				}
+			}
+			&__btn {
+				position: absolute;
+				background: none;
+				border: none;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				padding: 0;
+				display: flex;
+				left: 1.7rem;
+				@include media-breakpoint-down(sm) {
+					height: 100%;
+					width: 100%;
+					left: 50%;
+					transform: translateX(-50%) translateY(-50%);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				.icon-search {
+					font-size: 1.4rem;
+				}
+			}
+		}
+}

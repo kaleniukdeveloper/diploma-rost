@@ -1,0 +1,81 @@
+.c-select{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  min-width: 26rem;
+  position: relative;
+  &.w100-sm {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+  &__wrapper {
+    position: relative;
+  }
+  &__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: 1px solid $oxford-blue;
+  }
+  &__options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid $oxford-blue;
+    border-top: 0;
+    background: #fff;
+    transition: all 0.2s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    max-height: 30rem;
+    overflow-y: auto;
+  }
+  &.open {
+    .c-select__options {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+  &__option {
+    position: relative;
+    display: block;
+    padding: 0.85rem 1rem;
+    color: $woodsmoke;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid $oxford-blue;
+    &:first-child {
+      display: none;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+    &:hover {
+      color: lighten($color: $woodsmoke, $amount: 40%);
+    }
+    &.selected {
+      color: lighten($color: $woodsmoke, $amount: 70%)
+    }
+  }
+  &__arrow {
+    position: relative;
+    transition: all 0.5s ease;
+    display: flex;
+    width: 1.2rem;
+  }
+  &.open {
+    .c-select__arrow{
+      transform: rotateX(-180deg);
+    }
+  }
+}

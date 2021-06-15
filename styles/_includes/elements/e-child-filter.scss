@@ -1,0 +1,47 @@
+.e-child-filter {
+    &-line {
+      display: flex;
+      &__title {
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+      &__btn {
+        display: flex;
+        position: relative;
+        align-items: center;
+        &:hover {
+          .e-child-filter-line__dropdown {
+            opacity: 1;
+            visibility: visible;
+          }
+          .icon {
+            transform: rotateX(180deg);
+          }
+        }
+        .icon {
+          width: 1rem;
+          margin-left: 0.6rem;
+          transition: all 0.3s ease;
+        }
+      }
+      &__current {
+        font-weight: 600;
+      }
+      &__dropdown {
+        display: flex;
+        flex-direction: column;
+        width: 22rem;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: $white;
+        padding: 2rem;
+        z-index: 6;
+        transition: all 0.3s ease;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        margin-top: 0.4rem;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+}

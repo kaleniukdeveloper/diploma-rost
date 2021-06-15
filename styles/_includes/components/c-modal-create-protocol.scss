@@ -1,0 +1,51 @@
+.c-modal-create-protocol {
+  .modal-dialog {
+    max-width: 64rem;
+  }
+  &__wrapper {
+    padding: 4.5rem 18rem 6rem;
+    @include media-breakpoint-down(md) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .form-wrap {
+      width: 100%;
+      max-width: 26rem;
+      @include media-breakpoint-down(sm) {
+        max-width: 100%;
+      }
+    }
+    .form-row-two {
+      display: flex;
+      .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &:not(:last-child){
+          margin-right: 1.6rem;
+        }
+        .e-input {
+          width: 100%;
+          min-width: auto;
+        }
+        label {
+          margin-right: 1.2rem;
+        }
+        .form-control {
+          width: 9.5rem;
+          @include media-breakpoint-down(sm) {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+}

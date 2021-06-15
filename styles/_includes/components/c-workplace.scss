@@ -1,0 +1,23 @@
+.c-workplace {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .e-btn {
+      display: none;
+      @include media-breakpoint-down(md) {
+        display: flex !important;
+      }
+    }
+  }
+  &__create-btn  {
+    margin-bottom: 2rem;
+    height: 5rem;
+    @include media-breakpoint-down(md) {
+      display: none !important;
+    }
+  }
+  &__wrapper {
+    margin-top: 1.5rem;
+  }
+}

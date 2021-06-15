@@ -1,0 +1,10 @@
+.c-modal-welcome {
+  &__wrapper {
+    padding: 11rem 0;
+    margin: 0 auto;
+    max-width: 39rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,21 @@
+.c-modal-verification {
+  .modal__title {
+    letter-spacing: -0.1px;
+    white-space: nowrap;
+  }
+  &__wrapper {
+    padding: 5.5rem 16rem 7rem;
+    @include media-breakpoint-down(md) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 3.5rem;
+  }
+  &__btn {
+    margin-top: 1rem;
+  }
+}

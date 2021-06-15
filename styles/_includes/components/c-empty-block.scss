@@ -1,0 +1,30 @@
+.c-empty-block {
+  background-color: $athens-gray;
+  padding: 3.3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &.mt20 {
+    margin-top: 2rem;
+  }
+  &__ico {
+    margin-bottom: 1.2rem;
+    .icon {
+      font-size: 1.5rem;
+      &-lock {
+        stroke-width: 1;
+      }
+    }
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__text {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: $woodsmoke;
+    text-align: center;
+  }
+}

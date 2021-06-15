@@ -1,0 +1,51 @@
+.c-talent {
+  &__all-back {
+    color: #B0BAC4;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    &:hover {
+      text-decoration: none;
+      color: #B0BAC4;
+    }
+    span {
+      margin-left: 1rem;
+    }
+  }
+  &__wrapper {
+    padding-top: 2.4rem;
+    .c-user-item {
+      min-height: 12rem;
+    }
+    .c-user-item__name {
+      color: #15171A;
+      font-size: 1.6rem;
+    }
+    .c-user-item__info {
+      margin-left: 0;
+    }
+    .c-user-item__img {
+      margin-right: 1rem;
+    }
+  }
+  &__user {
+    &-wrap{
+      margin-bottom: 3rem;
+    }
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+  }
+  &__portfolio {
+    &-wrap {
+      margin-top: 1.5rem;
+      .c-event-item__info {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.e-checkbox {
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid $oxford-blue;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    position: absolute;
+    content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDEwIDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNMC41IDQuNUw0IDcuNUw5LjUgMC41IiBzdHJva2U9IiMzRTRCNUQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPg0KPC9zdmc+DQo=);
+    opacity: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s ease-in-out;
+  }
+  &:checked {
+    &::before {
+      opacity: 1;
+    }
+  }
+}

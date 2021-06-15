@@ -1,0 +1,38 @@
+.c-structure-sidebar {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+  &__list {
+    @include media-breakpoint-down(md) {
+      padding: 0 1rem;
+    }
+  }
+  &__item {
+    background-color: $athens-gray;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    a {
+      color: $oxford-blue;
+    }
+    &:first-child {
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+  &.show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+    background-color: $white;
+    .mobile-burger__head {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+}

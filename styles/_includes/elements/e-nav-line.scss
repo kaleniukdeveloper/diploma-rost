@@ -1,0 +1,44 @@
+.e-nav-line {
+  .nav {
+    background-color: $athens-gray;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    &-item {
+      flex-shrink: 0;
+    }
+    &-link {
+      font-size: 1.4rem;
+      color: $cadet-blue;
+      position: relative;
+      padding: 1.5rem 1rem;
+      font-weight: 600;
+      .count {
+        margin-left: 0.3rem;
+      }
+      &:first-child {
+        padding: 1.5rem 1rem 1.5rem 2rem;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $oxford-blue;
+        height: 2px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      &.active {
+        color: $oxford-blue;
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .tab-content {
+    margin-top: 2rem;
+  }
+}

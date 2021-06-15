@@ -1,0 +1,77 @@
+.c-multiselect {
+  display: flex;
+  flex-direction: column;
+  min-width: 26rem;
+  position: relative;
+  &__wrapper {
+    position: relative;
+    &:hover {
+      .c-multiselect__options {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  &__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: 1px solid $oxford-blue;
+  }
+  &__options {
+    position: absolute;
+    margin-top: 0.6rem;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid $oxford-blue;
+    border-bottom:  0;
+    filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.1));
+    background: #fff;
+    transition: all 0.2s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 4;
+    max-height: 40rem;
+    overflow-y: auto;
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+    li ul li .c-multiselect__option {
+      padding-left: 4rem;
+    }
+    .e-checkbox {
+      position: absolute;
+      right: 0;
+      top: 1.2rem;
+      right: 1.4rem;
+    }
+  }
+  &__option {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #3E4B5D;
+    cursor: pointer;
+    position: relative;
+    label {
+      cursor: pointer;
+    }
+  }
+  &__arrow {
+    position: relative;
+    transition: all 0.5s ease;
+    display: flex;
+    width: 1.2rem;
+  }
+  &.open {
+    .c-select__arrow{
+      transform: rotateX(-180deg);
+    }
+  }
+}

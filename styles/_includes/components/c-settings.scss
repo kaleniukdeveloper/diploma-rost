@@ -1,0 +1,123 @@
+.c-settings {
+  &__wrapper {
+    padding-top: 1.4rem;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__action {
+    font-weight: bold;
+    color: #B0BAC4;
+  }
+  &-form {
+    margin-top: 1.5rem;
+    padding: 2.4rem 2rem;
+    background-color: $athens-gray;
+    &__wrapper {
+      display: flex;
+      @include media-breakpoint-down(xs) {
+        flex-direction: column;
+      }
+    }
+    &__column {
+      width: 50%;
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+      }
+      &:not(:last-child){
+        margin-right: 2rem;
+        @include media-breakpoint-down(xs) {
+          margin-right: 0;
+        }
+      }
+    }
+    .e-input , .c-select__trigger {
+      border: 1px solid #B0BAC4;
+      background-color: transparent;
+      min-width: auto;
+    }
+    .c-select {
+      min-width: auto;
+    }
+    .c-select__options , .e-input-autocomplete__items {
+      background-color: $athens-gray;
+      border: 1px solid #B0BAC4;
+      border-top: 0;
+    }
+    .c-select__option , .e-input-autocomplete__items div {
+      border-bottom: 1px solid #B0BAC4;
+    }
+    .e-input-autocomplete__items div {
+      background-color: $athens-gray;
+    }
+    &__btn-wrapper {
+      margin-top: 9rem;
+      @include media-breakpoint-down(xs) {
+        margin-top: 3rem;
+      }
+    }
+    &__btn {
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+      }
+    }
+    &--roles {
+      .e-role {
+        border: 1px solid #B0BAC4;
+        margin-bottom: 0.5rem;
+        min-width: auto;
+      }
+      .e-tooltip {
+        margin-bottom: 2rem;
+      }
+      .c-settings-form__btn-wrapper {
+        margin-top: 1rem;
+      }
+    }
+  }
+  &-children {
+    &__modals {
+      display: flex;
+      justify-content: flex-end;
+      .e-btn--plus {
+        max-width: 100%;
+        min-width: 17.6rem;
+        margin-right: 0;
+        padding: 0.8rem 2rem 0.8rem 2.4rem;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      .icon-smile-bad {
+        fill: transparent;
+        stroke-width: 1;
+      }
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      padding: 3rem 2rem;
+      background-color: $athens-gray;
+      margin-bottom: 2rem;
+      position: relative;
+      &__info {
+        display: flex;
+        flex-direction: column;
+      }
+      .c-edit__wrapper {
+        position: initial;
+      }
+      &__title {
+
+      }
+      &__id {
+        color: $rolling-stone;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

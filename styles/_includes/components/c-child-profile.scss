@@ -1,0 +1,87 @@
+.c-child-profile {
+  &__wrapper {
+    margin-top: 2rem;
+  }
+  &-user {
+    background-color: $athens-gray;
+    padding: 3.5rem 2rem 4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &__name , &__age {
+      color: $woodsmoke;
+    }
+    &__name {
+      position: relative;
+      padding-right: 0.5rem;
+      &:after {
+        content: ',';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        color: $woodsmoke;
+      }
+    }
+    &__interests {
+      color: $rolling-stone;
+      margin-top: 0.5rem;
+    }
+  }
+  &-info {
+    margin-top: 2.9rem;
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    &__edit {
+      color: #C6CED6;
+      font-weight: bold;
+    }
+  }
+  &-item {
+    background-color: $athens-gray;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    &:not(:last-child){
+      margin-bottom: 1rem;
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+    }
+    &__img , &__modal {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    &__title {
+      color: $oxford-blue;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    &__subtitle {
+      color: $rolling-stone;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
+    &__date {
+      color: $rolling-stone;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+      margin-bottom: 0.3rem;
+    }
+  }
+  &__modals {
+    display: flex;
+    align-items: center;
+    margin-top: 2.6rem;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,123 @@
+.c-opportunity {
+  &__wrapper {
+    padding-top: 1.5rem;
+  }
+  &__nav {
+    margin-bottom: 2rem;
+  }
+  &-welcome {
+    border: 2px solid #D9DEE2;
+    padding: 3.5rem;
+    position: relative;
+    &__stars {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      .icon-star {
+        font-size: 1.6rem;
+      }
+      .icon-star:not(:last-child){
+        margin-right: 3rem;
+      }
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+    }
+    &__txt {
+      color: $woodsmoke;
+      text-align: center;
+    }
+    &__close {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      .icon-border-close {
+        font-size: 2.4rem;
+      }
+    }
+  }
+  &__list {
+    margin-top: 2rem;
+  }
+  &-item {
+    &:not(:last-child){
+      margin-bottom: 2rem;
+    }
+    &__head {
+      background-color: $athens-gray;
+      margin-bottom: 1px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__info {
+      display: flex;
+      align-items: center;
+    }
+    &__img {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        height: 100%;
+      }
+    }
+    &__titles {
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    &__title {
+      font-weight: bold;
+      color: $oxford-blue;
+      line-height: normal;
+      margin-bottom: 0.3rem;
+      font-size: 1.4rem;
+    }
+    &__date {
+      color: $rolling-stone;
+      margin-top: 0.3rem;
+    }
+    &__subtitle {
+      color: $rolling-stone;
+    }
+    &__body {
+      background-color: $athens-gray;
+      padding: 1.3rem 1.4rem 1.3rem 2rem;
+    }
+    &__desc {
+      max-height: 6.6rem;
+      overflow: hidden;
+      &.all-text {
+        max-height: 100%;
+      }
+    }
+    &__show-more {
+      color: $cadet-blue;
+      transition: all 0.3s ease;
+      &:hover {
+        color: $oxford-blue;
+        .icon {
+          color: $oxford-blue;
+        }
+      }
+      .icon {
+        font-size: 0.6rem;
+        color: $cadet-blue;
+        transition: all 0.3s ease;
+      }
+      &.active {
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &__filter {
+    margin-top: 3rem;
+  }
+}

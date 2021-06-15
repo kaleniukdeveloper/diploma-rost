@@ -1,0 +1,26 @@
+.e-show-all-text {
+  color: $cadet-blue;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: $oxford-blue;
+  }
+  &:after {
+    content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI1IiB2aWV3Qm94PSIwIDAgOCA1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMSAxTDQgM0w3IDEiIHN0cm9rZT0iI0IwQkFDNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==);
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+  &--hide {
+    &:after {
+      transform: rotateX(180deg);
+      margin-bottom: -.5rem;
+      margin-top: 0;
+    }
+  }
+}

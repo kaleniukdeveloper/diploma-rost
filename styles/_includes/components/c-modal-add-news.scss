@@ -1,0 +1,74 @@
+.c-modal-add-news {
+  &__wrapper {
+    padding: 5.5rem 16rem 8rem;
+    @include media-breakpoint-down(md) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 3rem;
+    .e-textarea {
+      min-height: 18rem;
+    }
+  }
+  &__btn {
+    margin-top: 3rem;
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.6rem 1.7rem -0.6rem;
+  }
+  &-item {
+    width: 6rem;
+    height: 4rem;
+    overflow: hidden;
+    position: relative;
+    background-color: $geyser;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem 0.4rem;
+    .icon-photo {
+      font-size: 2.5rem;
+    }
+    &__btn {
+      position: absolute;
+      top: 3px;
+      display: flex;
+      right: 3px;
+    }
+  }
+  &__docs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  &__doc {
+    background-color: $geyser;
+    padding: 0.7rem 0.8rem 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    cursor: pointer;
+    &:not(:last-child){
+      margin-bottom: 0.6rem;
+    }
+    &-name {
+      font-weight: 600;
+      font-size: 1.2rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-right: 1rem;
+      color: $woodsmoke;
+    }
+  }
+}

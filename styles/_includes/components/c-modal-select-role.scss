@@ -1,0 +1,27 @@
+.c-modal-select-role {
+  &__wrapper {
+    max-width: 26rem;
+    margin: 0 auto;
+    padding: 8rem 0 6.4rem 0;
+  }
+  &__form {
+    margin-top: 5rem;
+  }
+  &__action-block {
+    margin-bottom: 2rem;
+    .e-role {
+      margin-bottom: 0.5rem;
+    }
+    &:last-child {
+      margin-bottom: 5rem;
+    }
+  }
+  &__next {
+    margin-bottom: 3rem;
+  }
+  &__skip {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,33 @@
+.c-talent-search {
+  &__wrapper {
+    margin-top: 2rem;
+  }
+  .global-search {
+    margin-top: 2rem;
+    @include media-breakpoint-down(md) {
+     margin: 1rem 0 1rem 0;
+    }
+    input{
+      border: 2px solid $athens-gray;
+    }
+  }
+  &__btn-menu.e-btn {
+    margin-top: 1rem;
+    width: 100%;
+    display: none;
+    @include media-breakpoint-down(md) {
+      display: flex;
+    }
+  }
+  &__item {
+    .c-user-item__info {
+      max-width: 90%;
+      margin-left: 0;
+    }
+  }
+  .e-time-filter__options {
+    .form-radio.font-regular label {
+      white-space: nowrap;
+    }
+  }
+}

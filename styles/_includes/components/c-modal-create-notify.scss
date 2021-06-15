@@ -1,0 +1,14 @@
+.c-modal-create-notify {
+  &__wrapper {
+    padding: 4.5rem 16rem 8.5rem;
+    @include media-breakpoint-down(md) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 3rem;
+  }
+}

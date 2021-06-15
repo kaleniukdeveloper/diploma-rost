@@ -1,0 +1,52 @@
+.form-radio {
+  display: flex;
+  align-items: center;
+  &:not(:last-child){
+    margin-bottom: 2rem;
+  }
+  .e-radio {
+    display: none;
+    &:checked + label:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .e-label {
+    margin-bottom: 0;
+    line-height: normal;
+    font-size: 1.4rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $oxford-blue;
+    &:before {
+      content: "";
+      display: flex;
+      height: 1.4rem;
+      width: 1.4rem;
+      border: 1px solid $oxford-blue;
+      border-radius: 50%;
+      position: relative;
+      margin-right: 1rem;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      height: 0.6rem;
+      width: 0.6rem;
+      border-radius: 50%;
+      background-color: $oxford-blue;
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: all 0.3s ease;
+      visibility: hidden;
+    }
+  }
+  &.font-regular {
+    label {
+      font-weight: 400;
+    }
+  }
+}

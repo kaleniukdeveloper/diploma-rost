@@ -1,0 +1,22 @@
+.c-modal-report {
+  &__wrapper {
+    padding: 5.5rem 16rem 9rem;
+    @include media-breakpoint-down(lg) {
+      padding: 4rem;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 3rem;
+    .e-textarea {
+      min-height: 18rem;
+    }
+  }
+  &__btn {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+}

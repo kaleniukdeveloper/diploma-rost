@@ -1,0 +1,36 @@
+.c-institutions-item {
+  display: flex;
+  align-items: center;
+  background-color: $athens-gray;
+  padding: 2rem;
+  position: relative;
+  &:not(:last-child){
+    margin-bottom: 1rem;
+  }
+  &__img {
+    height: 6rem;
+    width: 6rem;
+    overflow: hidden;
+    border-radius: 50%;
+    background-image: url(../../../public/images/tmp_file/institutions.png);
+    flex-shrink: 0;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+  &__title {
+    font-weight: bold;
+    color: $oxford-blue;
+    margin-bottom: 4px;
+  }
+  &__subtitle{
+    color: $rolling-stone;
+    margin-right: 3px;
+  }
+  &__date {
+    color: $rolling-stone;
+    line-height: normal;
+  }
+}

@@ -1,0 +1,27 @@
+.e-textarea {
+  border: 1px solid $oxford-blue;
+	outline: none;
+	box-shadow: none !important;
+	border-radius: 0;
+	padding: 0.85rem 1rem;
+	min-width: 26rem;
+	width: 100%;
+	font-size: 1.4rem;
+	-webkit-appearance: none !important;
+  -moz-appearance: none !important;
+	appearance: none !important;
+  background-clip: padding-box;
+  resize: none;
+	@include media-breakpoint-down(sm) {
+		min-width: 100%;
+	}
+	@media screen and (-webkit-min-device-pixel-ratio:0) { 
+		font-size: 1.4rem;
+	}
+	&:focus {
+		font-size: 1.4rem;
+	}
+	&::placeholder {
+		color: $cadet-blue;
+	}
+}

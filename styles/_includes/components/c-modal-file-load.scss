@@ -1,0 +1,16 @@
+.c-modal-file-load {
+  &__wrapper {
+    max-width: 35rem;
+    margin: 0 auto;
+    padding: 8.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__file {
+    margin-top: 3rem;
+  }
+  &__info {
+    margin-top: 1rem;
+  }
+}

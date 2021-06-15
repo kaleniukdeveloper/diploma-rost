@@ -1,0 +1,90 @@
+// Body
+//
+// Settings for the `<body>` element.
+
+// * "$body-bg" variable is not for body background, it's for app background "l-main, c-header, etc."
+$body-bg:                   white;
+
+$white:                    white;
+$black:                    black;
+$woodsmoke:                #15171A;
+$rolling-stone:            #787C82;
+$oxford-blue:              #3E4B5D;
+$cadet-blue:               #B0BAC4;
+$geyser:                   #D9DEE2;
+$athens-gray:              #EFF2F5;
+$lynch:                    #62738A;
+$dodger-blue:              #2F81F3;
+
+$body-color:                $woodsmoke;
+
+$font-family-base:  'OpenSans', sans-serif;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                             black;
+$link-decoration:                         none;
+$link-hover-color:                        black;
+$link-hover-decoration:                   underline;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+
+// stylelint-enable value-keyword-case
+
+$font-size-base:              1.4rem; // Assumes the browser default, typically `16px`
+
+
+
+$line-height-base:            1.6 !default;
+
+$h1-font-size:                7.2rem;
+$h2-font-size:                4.8rem;
+$h3-font-size:                3rem;
+$h4-font-size:                2.4rem;
+$h5-font-size:                1.8rem;
+$h6-font-size:                1.4rem;
+
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-font-family:        'OpenSans', sans-serif;
+$headings-font-weight:        700;
+$headings-line-height:        1.15;
+$headings-color:              $woodsmoke;
+
+
+
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                10;
+$grid-gutter-width:           1.5rem;
+$grid-row-columns:            1;
+
+
+$grid-breakpoints: (
+  xx: 0,
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+$container-max-widths: (
+  xs: 540px,
+  sm: 720px,
+  md: 960px,
+  lg: 997px,
+);
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");

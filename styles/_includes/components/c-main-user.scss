@@ -1,0 +1,69 @@
+.c-main-user {
+  display: flex;
+  align-items: center;
+  background-color: $athens-gray;
+  padding: 1.5rem 2rem 1.5rem 1.5rem;
+  position: relative;
+  margin-bottom: 3rem;
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__change-img {
+    height: 9rem;
+    width: 9rem;
+    border: 2px solid $oxford-blue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    @include media-breakpoint-down(sm) {
+      height: 7rem;
+      width: 7rem;
+    }
+    .icon-photo {
+      font-size: 2.5rem;
+    }
+  }
+  &__empty-img {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    background-color: $geyser;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media-breakpoint-down(sm) {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    @include media-breakpoint-down(sm) {
+      margin-left: 0;
+      margin-top: 1.5rem;
+    }
+  }
+  &__name {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  &__role {
+    color: $rolling-stone;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-top: .6rem;
+  }
+  .c-edit__wrapper {
+    @include media-breakpoint-down(sm) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 2rem;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.e-nav-apart {
+  .nav {
+    background-color: transparent;
+  }
+  .nav-item {
+    &:not(:last-child){
+      margin-right: 1rem;
+    }
+  }
+  .nav-link {
+    padding: 0.65rem 1rem !important;
+    background-color: $athens-gray;
+    display: flex;
+    color: $cadet-blue;
+    font-weight: 600;
+    &:after {
+      display: none !important;
+    }
+    .count {
+      margin-left: 0.5rem;
+    }
+  }
+  .tab-content {
+    margin-top: 1rem;
+  }
+}

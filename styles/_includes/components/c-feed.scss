@@ -1,0 +1,24 @@
+.c-feed {
+  &__wrapper {
+    padding-top: 1.5rem;
+  }
+  &__main-filter {
+    background-color: $athens-gray;
+    padding: 1.45rem 2rem;
+  }
+  &__child-filter {
+    margin-top: 3rem;
+  }
+  &__list {
+    margin-top: 1.3rem;
+  }
+  &__empty {
+    margin-top: 2rem;
+    .c-empty-block__desc {
+      max-width: 39rem;
+    }
+    .c-empty-block__text {
+      text-align: center;
+    }
+  }
+}

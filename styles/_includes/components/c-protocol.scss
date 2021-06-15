@@ -1,0 +1,305 @@
+.c-protocol {
+  padding-top: 2rem;
+  &__all-back {
+    color: #B0BAC4;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    &:hover {
+      text-decoration: none;
+      color: #B0BAC4;
+    }
+    span {
+      margin-left: 1rem;
+    }
+  }
+  &__wrapper {
+    padding-top: 2.4rem;
+  }
+  &-user {
+    display: flex;
+    align-items: center;
+    background-color: $athens-gray;
+    padding: 2rem 5rem 2rem 2rem;
+    position: relative;
+    margin-bottom: 2rem;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__change-img {
+      height: 8rem;
+      width: 8rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      @include media-breakpoint-down(sm) {
+        height: 7rem;
+        width: 7rem;
+      }
+    }
+    &__empty-img {
+      height: 8rem;
+      width: 8rem;
+      background-image: url(../../../public/images/tmp_file/event2.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      @include media-breakpoint-down(sm) {
+        height: 6rem;
+        width: 6rem;
+      }
+    }
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1.5rem;
+      @include media-breakpoint-down(sm) {
+        margin-left: 0;
+        margin-top: 1.5rem;
+      }
+    }
+    &__name {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    &__section {
+      color: $rolling-stone;
+    }
+    .c-edit__wrapper {
+      @include media-breakpoint-down(sm) {
+        position: absolute;
+        top: 4rem;
+        right: 2rem;
+      }
+    }
+    &__list {
+      display: flex;
+      margin-top: 1.2rem;
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+      }
+      &-col {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child){
+          margin-right: 1.4rem;
+          @include media-breakpoint-down(sm) {
+            margin-right: 0;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+      &-row {
+        display: flex;
+        min-width: 16.6rem;
+      }
+      &-ttl {
+        color: #787C82;
+      }
+      &-val {
+        color: #000;
+        margin-left: .3rem;
+      }
+    }
+  }
+  &__modals {
+    display: flex;
+    align-items: center;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      .e-btn {
+        width: 100% !important;
+        &:not(:last-child){
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    .e-btn {
+      min-width: 16.4rem;
+      padding: .6rem 1.5rem;
+      white-space: nowrap;
+      font-weight: 400;
+      text-decoration: none;
+      &:not(:last-child){
+        margin-right: 1rem;
+      }
+    }
+    .e-btn--plus {
+      padding: .6rem 1.4rem .6rem 3.2rem;
+      min-width: auto;
+      max-width: 100%;
+    }
+    .e-btn--outline {
+      margin-left: auto;
+      max-width: 100%;
+      min-width: auto;
+      width: auto;
+    }
+  }
+  &__table {
+    
+    &-sort {
+      margin-top: 1.4rem;
+    }
+    &-body {
+      background: #EFF2F5;
+      margin-top: 1.4rem;
+      @include media-breakpoint-down(lg) {
+        overflow: hidden;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        thead {
+          th {
+            color: #787C82;
+            padding: .4rem 1rem;
+            height: 5rem;
+            font-weight: 400;
+            white-space: nowrap;
+            &:not(:last-child) {
+              border-right: 1px solid #D9DEE2;
+            }
+            button {
+              color: #787C82;
+              display: flex;
+              align-items: center;
+              .icon {
+                color: #787C82;
+                font-size: .5rem;
+                margin-left: 1.5rem;
+              }
+            }
+          }
+        }
+        tbody {
+          td {
+            white-space: nowrap;
+            color: #15171A;
+            padding: .4rem 1rem;
+            font-weight: 400;
+            height: 5rem;
+            &:not(:last-child) {
+              border-right: 1px solid #D9DEE2;
+            }
+          }
+        }
+        tr {
+          border-bottom: 1px solid #D9DEE2;
+        }
+      }
+      .c-protocol__table-user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-desc {
+          display: flex;
+          flex-direction: column;
+        }
+        &-name {
+          color: #15171A;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          max-width: 95%;
+          overflow: hidden;
+          margin-right: 1rem;
+        }
+        &-id {
+          color: #787C82;
+          font-size: 1rem;
+        }
+      }
+      .c-protocol__table-input {
+        .form-group {
+          margin-bottom: 0;
+        }
+        .e-input {
+          border: none;
+          width: 100%;
+          min-width: 100%;
+          padding: 1rem 0;
+          background: transparent;
+          padding: 0;
+        }
+      }
+      .user{
+        min-width: 40rem;
+      }
+      .age {
+        min-width: 5.2rem;
+      }
+      .team {
+        min-width: 19.1rem;
+      }
+      .result {
+        min-width: 9rem;
+        flex-shrink: 0;
+      }
+      .change {
+        min-width: 9rem;
+      }
+      .place {
+        min-width: 12.2rem;
+      }
+      .name {
+        min-width: 48rem;
+       .c-protocol__table-input {
+          width: 100%;
+          margin-right: 1rem;
+        }
+      }
+      .e-time-filter-list__item {
+        max-height: 20rem;
+        overflow: hidden;
+        overflow-y: auto;
+        @include media-breakpoint-down(sm) {
+          max-height: 10rem;
+        }
+      }
+      .role {
+        min-width: 49rem;
+        position: relative;
+        @include media-breakpoint-down(lg) {
+          min-width: 40rem;
+        }
+        .c-protocol__table-input {
+          width: 100%;
+          margin-right: 1rem;
+        }
+        .c-protocol__table-input:hover > .e-time-filter__options{
+          opacity: 1;
+          visibility: visible;
+          top: 70%;
+          left: 1rem;
+        }
+      }
+      .e-time-filter__btn {
+        font-weight: 400;
+        color: #B0BAC3;
+        width: 100%;
+        text-align: left;
+        white-space: nowrap;
+        &.active {
+          color: #3E4B5D;
+        }
+      }
+      .e-time-filter__options {
+        left: 80%;
+        top: -2rem;
+        @include media-breakpoint-down(lg) {
+          left: auto;
+          right: 0;
+          top: 100%;
+        }
+      }
+    }
+  }
+  .c-empty-block {
+   margin-top: 1.4rem; 
+  }
+}

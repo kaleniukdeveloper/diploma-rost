@@ -1,0 +1,26 @@
+.c-modal-photo-edit {
+  &__wrapper {
+    padding: 2.65rem 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .icon-photo {
+      font-size: 2.5rem;
+    }
+    .modal__subtitle {
+      max-width: 34rem;
+    }
+  }
+  &__action {
+    margin: 2rem 2rem 0 2rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-img {
+      margin-bottom: 3rem;
+      max-height: 35rem;
+    }
+  }
+}
