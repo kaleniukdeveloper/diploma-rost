@@ -115,7 +115,7 @@ const Diploma = ({ apiHost, propertiesData, inputsDoc }) => {
       // axios
       //   .post(`${apiHost}/save-gramota`, { properties, values })
       //   .then(async ({ data }) => {
-      //     await setSaveMode(false);
+          await setSaveMode(false);
       //   });
     };
 
