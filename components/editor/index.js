@@ -1,12 +1,5 @@
 import { forwardRef, useRef, useImperativeHandle, useState } from "react";
-// import QuickPinchZoom, { make3dTransformValue } from "react-quick-pinch-zoom";
-import InputEditor from "../edit-input";
-
-import dynamic from "next/dynamic";
-
-const PinchZoomPan = dynamic(() => import("../pinch-zoom-pan"), {
-  ssr: false,
-});
+import { InputEditor } from "../edit-input";
 
 export default forwardRef(({ setSelect, productionMode }, ref) => {
   const [background, setBackground] = useState(
@@ -20,7 +13,7 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
         top: 500,
         fontStyles: {
           fontFamily: null,
-          fontSize: "36px",
+          fontSize: "14px",
           fontWeight: null,
           fontStyle: null,
           textDecoration: null,
@@ -34,7 +27,7 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
         top: 570,
         fontStyles: {
           fontFamily: null,
-          fontSize: null,
+          fontSize: "14px",
           fontWeight: null,
           fontStyle: null,
           textDecoration: null,
@@ -43,12 +36,12 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
       },
       edit_3: {
         width: 730,
-        height: 250,
+        height: 50,
         left: 120,
         top: 640,
         fontStyles: {
           fontFamily: null,
-          fontSize: null,
+          fontSize: "14px",
           fontWeight: null,
           fontStyle: null,
           textDecoration: null,
@@ -62,7 +55,7 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
         top: 710,
         fontStyles: {
           fontFamily: null,
-          fontSize: null,
+          fontSize: "14px",
           fontWeight: null,
           fontStyle: null,
           textDecoration: null,
@@ -76,7 +69,7 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
         top: 980,
         fontStyles: {
           fontFamily: null,
-          fontSize: null,
+          fontSize: "14px",
           fontWeight: null,
           fontStyle: null,
           textDecoration: null,
@@ -85,12 +78,12 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
       },
       edit_6: {
         width: 200,
-        height: 40,
+        height: 30,
         left: 385,
         top: 1250,
         fontStyles: {
           fontFamily: null,
-          fontSize: null,
+          fontSize: "12px",
           fontWeight: null,
           fontStyle: null,
           textDecoration: null,
@@ -138,39 +131,14 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
     };
 
   useImperativeHandle(ref, () => ({
-    setFont(fontFamily) {
-      return updateStyle(input, "fontFamily", fontFamily);
+    setStyle(type, value) {
+      if (type === "fornFamily" || type === "fontSize") {
+        return updateStyle(input, type, value);
+      }
+      return updateStyle(input, type, getCurrentValue(type, value));
     },
-    setSize(fontSize) {
-      return updateStyle(input, "fontSize", fontSize + "px");
-    },
-    setBold(fontWeight) {
-      return updateStyle(
-        input,
-        "fontWeight",
-        getCurrentValue("fontWeight", fontWeight)
-      );
-    },
-    setItalic(fontStyle) {
-      return updateStyle(
-        input,
-        "fontStyle",
-        getCurrentValue("fontStyle", fontStyle)
-      );
-    },
-    setUnderlined(textDecoration) {
-      return updateStyle(
-        input,
-        "textDecoration",
-        getCurrentValue("textDecoration", textDecoration)
-      );
-    },
-    setFloat(textAlign) {
-      return updateStyle(
-        input,
-        "textAlign",
-        getCurrentValue("textAlign", textAlign)
-      );
+    setBackgroundImage(b64) {
+      setBackground(b64);
     },
     getObject() {
       return inputs;
@@ -181,81 +149,79 @@ export default forwardRef(({ setSelect, productionMode }, ref) => {
   }));
 
   return (
-    <PinchZoomPan areaRef={offsetParent} productionMode={productionMode}>
-      <div className="c-diplom-page-edit__place" ref={offsetParent}>
-        <img src={background} alt="" />
-        <div
-          className={`c-diplom-page-edit__actions ${
-            productionMode ? "production" : ""
-          }`}
-        >
-          <InputEditor
-            classes={""}
-            defaultValue=""
-            id="edit_1"
-            type={"input"}
-            placeholder={"Имя"}
-            properties={inputs["edit_1"]}
-            onSelect={onSelectInput}
-            area={offsetParent.current}
-          />
+    <div className="c-diplom-page-edit__place" ref={offsetParent}>
+      <img src={background} alt="" />
+      <div
+        className={`c-diplom-page-edit__actions ${
+          productionMode ? "production" : ""
+        }`}
+      >
+        <InputEditor
+          classes={""}
+          defaultValue=""
+          id="edit_1"
+          type={"input"}
+          placeholder={"Имя"}
+          properties={inputs["edit_1"]}
+          onSelect={onSelectInput}
+          area={offsetParent.current}
+        />
 
-          <InputEditor
-            classes={``}
-            defaultValue=""
-            id="edit_2"
-            type={"input"}
-            placeholder={"Фамилия"}
-            properties={inputs["edit_2"]}
-            onSelect={onSelectInput}
-            area={offsetParent.current}
-          />
+        <InputEditor
+          classes={``}
+          defaultValue=""
+          id="edit_2"
+          type={"input"}
+          placeholder={"Фамилия"}
+          properties={inputs["edit_2"]}
+          onSelect={onSelectInput}
+          area={offsetParent.current}
+        />
 
-          <InputEditor
-            classes={``}
-            defaultValue=""
-            id="edit_3"
-            type={"input"}
-            placeholder={"Отчество"}
-            properties={inputs["edit_3"]}
-            onSelect={onSelectInput}
-            area={offsetParent.current}
-          />
+        <InputEditor
+          classes={``}
+          defaultValue=""
+          id="edit_3"
+          type={"input"}
+          placeholder={"Отчество"}
+          properties={inputs["edit_3"]}
+          onSelect={onSelectInput}
+          area={offsetParent.current}
+        />
 
-          <InputEditor
-            classes={""}
-            defaultValue=""
-            id="edit_4"
-            type={"textarea"}
-            placeholder={"Результат"}
-            properties={inputs["edit_4"]}
-            onSelect={onSelectInput}
-            area={offsetParent.current}
-          />
+        <InputEditor
+          classes={""}
+          defaultValue=""
+          id="edit_4"
+          type={"textarea"}
+          placeholder={"Результат"}
+          properties={inputs["edit_4"]}
+          onSelect={onSelectInput}
+          area={offsetParent.current}
+        />
 
-          <InputEditor
-            classes={""}
-            defaultValue=""
-            id="edit_5"
-            type={"textarea"}
-            placeholder={"Состав комиссии"}
-            properties={inputs["edit_5"]}
-            onSelect={onSelectInput}
-            area={offsetParent.current}
-          />
+        <InputEditor
+          classes={""}
+          defaultValue=""
+          id="edit_5"
+          type={"textarea"}
+          placeholder={"Состав комиссии"}
+          properties={inputs["edit_5"]}
+          onSelect={onSelectInput}
+          area={offsetParent.current}
+        />
 
-          <InputEditor
-            classes={""}
-            defaultValue=""
-            id="edit_6"
-            type={"input"}
-            placeholder={"Город и дата"}
-            properties={inputs["edit_6"]}
-            onSelect={onSelectInput}
-            area={offsetParent.current}
-          />
-        </div>
+        <InputEditor
+          classes={""}
+          defaultValue=""
+          id="edit_6"
+          type={"input"}
+          placeholder={"Город и дата"}
+          properties={inputs["edit_6"]}
+          onSelect={onSelectInput}
+          area={offsetParent.current}
+        />
       </div>
-    </PinchZoomPan>
+    </div>
   );
 });

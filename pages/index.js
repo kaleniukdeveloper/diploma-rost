@@ -4,6 +4,7 @@ import Editor from "../components/editor";
 import { useState, useRef, useEffect } from "react";
 import * as htmlToImage from "html-to-image";
 import download from "downloadjs";
+import fs from "fs";
 
 const Diploma = ({ propertiesData }) => {
   const [select, setSelect] = useState(null),
@@ -21,30 +22,11 @@ const Diploma = ({ propertiesData }) => {
       toggleSizessList(!sizesList);
     },
     setState = (type, value) => {
+      const { current } = editor;
+
       toggleSizessList(false);
       toggleFontsList(false);
-
-      const { current } = editor;
-      switch (type) {
-        case "fontFamily":
-          setValues(current.setFont(value)[select]);
-          break;
-        case "fontSize":
-          setValues(current.setSize(value)[select]);
-          break;
-        case "fontWeight":
-          setValues(current.setBold("bold")[select]);
-          break;
-        case "fontStyle":
-          setValues(current.setItalic("italic")[select]);
-          break;
-        case "textDecoration":
-          setValues(current.setUnderlined("underline")[select]);
-          break;
-        case "textAlign":
-          setValues(current.setFloat(value)[select]);
-          break;
-      }
+      setValues(current.setStyle(type, value)[select]);
     },
     getActive = (prop, def) => {
       if (!values) {
@@ -68,22 +50,60 @@ const Diploma = ({ propertiesData }) => {
       const { current } = editor;
       if (current) {
         const node = current.getElement();
-        console.log(node);
         htmlToImage
           .toPng(node, { canvasWidth: 2480, canvasHeight: 3508 })
           .then(async (dataUrl) => {
-            download(dataUrl, "my-node.png");
+            download(dataUrl, `${Date.now()}-diplom.png`);
             await setProductionMode(false);
           })
           .catch(function (error) {
             console.error("oops, something went wrong!", error);
           });
       }
+    },
+    selectedImageBack = (event) => {
+      event.persist();
+      const file = event.target.files[0],
+        reader = new FileReader();
+
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        const { current } = editor,
+          image = reader.result;
+
+        current.setBackgroundImage(image);
+      };
+      reader.onerror = function () {
+        console.log("there are some problems");
+      };
+    },
+    loadFonts = async () => {
+      const style = document.createElement("style"),
+        head = document.head || document.getElementsByTagName("head")[0],
+        { fonts } = propertiesData;
+
+      let fontLine = "";
+      for (let font of fonts) {
+        const newFont = new FontFace(
+          font.value,
+          `url(${window.location.href}fonts_gramota/${font.value}/${font.value}.ttf)`
+        );
+        // wait for font to be loaded
+        newFont.load();
+        // add font to document
+        document.fonts.add(newFont);
+
+        fontLine += `@font-face {font-family: "${font.value}";src: url("${window.location.href}fonts_gramota/${font.value}/${font.value}.ttf");font-weight: 300;};`;
+      }
+
+      style.innerText = fontLine;
+      head.appendChild(style);
     };
 
   useEffect(() => {
-    console.log(values);
-  }, [values]);
+    loadFonts();
+  }, []);
 
   useEffect(() => {
     const { current } = editor;
@@ -249,6 +269,7 @@ const Diploma = ({ propertiesData }) => {
                                 data-value={el.key}
                                 className="c-select__option"
                                 onClick={() => setState("fontFamily", el.value)}
+                                style={{ fontFamily: el.value }}
                               >
                                 {el.title}
                               </span>
@@ -281,7 +302,9 @@ const Diploma = ({ propertiesData }) => {
                                 key={key}
                                 data-value={el.key}
                                 className="c-select__option"
-                                onClick={() => setState("fontSize", el.value)}
+                                onClick={() =>
+                                  setState("fontSize", el.value + "px")
+                                }
                               >
                                 {el.title}
                               </span>
@@ -298,7 +321,7 @@ const Diploma = ({ propertiesData }) => {
                       <button
                         type="button"
                         className={`c-diplom-actions-option__btn`}
-                        onClick={() => setState("fontWeight")}
+                        onClick={() => setState("fontWeight", "bold")}
                       >
                         ж
                       </button>
@@ -311,7 +334,7 @@ const Diploma = ({ propertiesData }) => {
                       <button
                         type="button"
                         className={`c-diplom-actions-option__btn `}
-                        onClick={() => setState("fontStyle")}
+                        onClick={() => setState("fontStyle", "italic")}
                       >
                         к
                       </button>
@@ -324,7 +347,7 @@ const Diploma = ({ propertiesData }) => {
                       <button
                         type="button"
                         className={`c-diplom-actions-option__btn`}
-                        onClick={() => setState("textDecoration")}
+                        onClick={() => setState("textDecoration", "underline")}
                       >
                         ч
                       </button>
@@ -409,12 +432,21 @@ const Diploma = ({ propertiesData }) => {
 
                   <div className="c-diplom-actions__bg">
                     <div className="c-diplom-actions-option">
-                      <button
+                      <input
+                        id="selectBackground"
+                        type="file"
+                        accept="image/jpeg,image/png"
+                        style={{ display: "none" }}
+                        onChange={selectedImageBack}
+                      />
+                      <label
+                        htmlFor="selectBackground"
                         type="button"
                         className="c-diplom-actions-option__btn"
                       >
                         Фон
-                      </button>
+                        {/* </button> */}
+                      </label>
                     </div>
                   </div>
                   <div className="c-diplom-actions__btns">
@@ -466,32 +498,19 @@ const Diploma = ({ propertiesData }) => {
 
 export const getStaticProps = async () => {
   // Call an external API endpoint to get posts
-  //   const res = await fetch("https://.../posts");
-  //   const posts = await res.json();
+  // const res = await fetch("/hello");
+  // const posts = await res.json();
+  const fontsFolder = "./public/fonts_gramota";
+  const fonts = fs.readdirSync(fontsFolder);
+  const fontsValues = fonts.map((font) => {
+    return {
+      title: font.replace(/\_/g, " "),
+      value: font,
+    };
+  });
 
   const propertiesData = {
-    fonts: [
-      {
-        title: "Roboto",
-        value: "Roboto",
-      },
-      {
-        title: "Arial",
-        value: "Arial",
-      },
-      {
-        title: "Georgia",
-        value: "Georgia",
-      },
-      {
-        title: "ST Serif",
-        value: "ST Serif",
-      },
-      {
-        title: "Comforta",
-        value: "Comforta",
-      },
-    ],
+    fonts: fontsValues,
     sizes: [
       {
         title: "11",

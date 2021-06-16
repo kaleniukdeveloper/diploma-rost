@@ -1,18 +1,25 @@
-@mixin font-face ($fontname, $fontfile, $fontweight: normal, $fontstyle: normal) {
-	@font-face {
-		font-family: $fontname;
-		src: url('../../../public/fonts/' + $fontfile + '.eot');
-		src: url('../../../public/fonts/' + $fontfile + '.eot?#iefix') format('embedded-opentype'),
-			 url('../../../public/fonts/' + $fontfile + '.woff') format('woff'),
-			 url('../../../public/fonts/' + $fontfile + '.ttf') format('truetype'),
-			 url('../../../public/fonts/' + $fontfile + '.svg##{fontname}') format('svg');
-		font-weight: $fontweight;
-		font-style: $fontstyle;
-	}
-};
+@mixin font-face(
+  $fontname,
+  $fontfile,
+  $fontweight: normal,
+  $fontstyle: normal
+) {
+  @font-face {
+    font-family: $fontname;
+    src: url("../../../public/fonts/" + $fontfile + ".eot");
+    src: url("../../../public/fonts/" + $fontfile + ".eot?#iefix")
+        format("embedded-opentype"),
+      url("../../../public/fonts/" + $fontfile + ".woff") format("woff"),
+      url("../../../public/fonts/" + $fontfile + ".ttf") format("truetype"),
+      url("../../../public/fonts/" + $fontfile + ".svg##{fontname}")
+        format("svg");
+    font-weight: $fontweight;
+    font-style: $fontstyle;
+  }
+}
 
-@include font-face('OpenSans', 'opensans/OpenSans-Light', 300);
-@include font-face('OpenSans', 'opensans/OpenSans-Regular', 400);
-@include font-face('OpenSans', 'opensans/OpenSans-SemiBold', 600);
-@include font-face('OpenSans', 'opensans/OpenSans-Bold', 700);
-@include font-face('OpenSans', 'opensans/OpenSans-ExtraBold', 800);
+@include font-face("OpenSans", "opensans/OpenSans-Light", 300);
+@include font-face("OpenSans", "opensans/OpenSans-Regular", 400);
+@include font-face("OpenSans", "opensans/OpenSans-SemiBold", 600);
+@include font-face("OpenSans", "opensans/OpenSans-Bold", 700);
+@include font-face("OpenSans", "opensans/OpenSans-ExtraBold", 800);

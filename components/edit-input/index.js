@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 
-export default ({
+export const InputEditor = ({
   area,
   classes,
   id,
