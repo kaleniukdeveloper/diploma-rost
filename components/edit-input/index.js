@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Draggable from "react-draggable";
 
 export const InputEditor = ({
@@ -40,8 +40,6 @@ export const InputEditor = ({
           style={{
             resize: "both",
             overflow: "hidden",
-            minHeight: type === "input" ? 50 : "auto",
-            maxHeight: type === "input" ? 50 : "auto",
             width: properties.width,
             height: properties.height,
           }}
@@ -50,6 +48,7 @@ export const InputEditor = ({
             <input
               id={id}
               type="text"
+              name={id}
               defaultValue={text}
               placeholder={placeholder}
               onFocus={onSelect}
@@ -59,6 +58,7 @@ export const InputEditor = ({
           {type === "textarea" && (
             <textarea
               id={id}
+              name={id}
               placeholder={placeholder}
               defaultValue={text}
               onFocus={onSelect}

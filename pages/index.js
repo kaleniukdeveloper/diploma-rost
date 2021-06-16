@@ -1,17 +1,20 @@
 import Head from "next/head";
 import Header from "../components/header";
-import Editor from "../components/editor";
+import { Editor } from "../components/editor";
+import { Banner } from "../components/banner";
 import { useState, useRef, useEffect } from "react";
 import * as htmlToImage from "html-to-image";
 import download from "downloadjs";
 import fs from "fs";
+import axios from "axios";
 
-const Diploma = ({ propertiesData }) => {
+const Diploma = ({ apiHost, propertiesData, inputsDoc }) => {
   const [select, setSelect] = useState(null),
     [fontsList, toggleFontsList] = useState(false),
     [sizesList, toggleSizessList] = useState(false),
     [values, setValues] = useState(null),
     [productionMode, setProductionMode] = useState(false),
+    [saveMode, setSaveMode] = useState(false),
     editor = useRef(null),
     toggleFonts = () => {
       toggleSizessList(false);
@@ -89,16 +92,31 @@ const Diploma = ({ propertiesData }) => {
           font.value,
           `url(${window.location.href}fonts_gramota/${font.value}/${font.value}.ttf)`
         );
-        // wait for font to be loaded
         newFont.load();
-        // add font to document
         document.fonts.add(newFont);
-
         fontLine += `@font-face {font-family: "${font.value}";src: url("${window.location.href}fonts_gramota/${font.value}/${font.value}.ttf");font-weight: 300;};`;
       }
 
       style.innerText = fontLine;
       head.appendChild(style);
+    },
+    saveDocument = async (event) => {
+      event.preventDefault();
+      await setSaveMode(true);
+      const { current } = editor,
+        properties = current.getObject(),
+        values = {};
+
+      Object.keys(properties).map((el) => {
+        values[el] = event.target[el].value;
+      });
+
+      console.log({ properties, values });
+      // axios
+      //   .post(`${apiHost}/save-gramota`, { properties, values })
+      //   .then(async ({ data }) => {
+      //     await setSaveMode(false);
+      //   });
     };
 
   useEffect(() => {
@@ -190,7 +208,7 @@ const Diploma = ({ propertiesData }) => {
               </div>
             </div>
           </div>
-          <div className="c-diplom-page">
+          <form onSubmit={saveDocument} className="c-diplom-page">
             <div className="container">
               <a href="#" className="c-diplom-page__all-back">
                 <svg width="1em" height="1em" className="icon icon-arrow">
@@ -199,44 +217,7 @@ const Diploma = ({ propertiesData }) => {
                 <span>Итоги события</span>
               </a>
               <div className="c-diplom-page__inner">
-                <div className="c-diplom-page__banner c-diplom-page-banner">
-                  <div className="c-diplom-page-banner__change-img">
-                    <div className="c-diplom-page-banner__empty-img"></div>
-                  </div>
-                  <div className="c-diplom-page-banner__desc">
-                    <b className="c-diplom-page-banner__name">Документ 1</b>
-                    <span className="c-diplom-page-banner__date">
-                      Дата создания:{" "}
-                      <span className="c-diplom-page-banner__date-txt">
-                        26.01.2020
-                      </span>
-                    </span>
-                  </div>
-                  <div className="c-edit__wrapper">
-                    <button type="button" className="c-edit">
-                      <svg
-                        width="1em"
-                        height="1em"
-                        className="icon icon-border-down "
-                      >
-                        <use xlinkHref="/images/useful/svg/theme/symbol-defs.svg#icon-border-down"></use>
-                      </svg>
-                      <div className="c-edit__options">
-                        <div className="c-edit__items">
-                          <a href="#" className="c-edit__item">
-                            Переименовать
-                          </a>
-                          <a href="#" className="c-edit__item">
-                            Создать копию
-                          </a>
-                          <a href="#" className="c-edit__item">
-                            Удалить
-                          </a>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </div>
+                <Banner inputsDoc={inputsDoc} />
 
                 <div className="c-diplom-page__actions c-diplom-actions">
                   <div
@@ -445,7 +426,6 @@ const Diploma = ({ propertiesData }) => {
                         className="c-diplom-actions-option__btn"
                       >
                         Фон
-                        {/* </button> */}
                       </label>
                     </div>
                   </div>
@@ -465,10 +445,17 @@ const Diploma = ({ propertiesData }) => {
                       )}
                     </button>
                     <button
-                      type="button"
+                      type="submit"
                       className="e-btn e-btn--filled button c-diplom-actions-btn"
                     >
-                      Сохранить
+                      {saveMode ? (
+                        <img
+                          src={"/images/useful/svg/loading2.svg"}
+                          alt="loading"
+                        />
+                      ) : (
+                        "Сохранить"
+                      )}
                     </button>
                   </div>
                 </div>
@@ -486,10 +473,11 @@ const Diploma = ({ propertiesData }) => {
                   setSelect={(e) => setSelect(e)}
                   ref={editor}
                   productionMode={productionMode}
+                  inputsDoc={inputsDoc}
                 />
               </div>
             </div>
-          </div>
+          </form>
         </main>
       )}
     </div>
@@ -567,11 +555,105 @@ export const getStaticProps = async () => {
     ],
   };
 
+  const inputsDoc = {
+    title: "Doc name test",
+    date: Date.now(),
+    new: true,
+    properties: {
+      edit_1: {
+        width: 730,
+        height: 50,
+        left: 120,
+        top: 500,
+        fontStyles: {
+          fontFamily: null,
+          fontSize: "14px",
+          fontWeight: null,
+          fontStyle: null,
+          textDecoration: null,
+          textAlign: null,
+        },
+      },
+      edit_2: {
+        width: 730,
+        height: 50,
+        left: 120,
+        top: 570,
+        fontStyles: {
+          fontFamily: null,
+          fontSize: "14px",
+          fontWeight: null,
+          fontStyle: null,
+          textDecoration: null,
+          textAlign: null,
+        },
+      },
+      edit_3: {
+        width: 730,
+        height: 50,
+        left: 120,
+        top: 640,
+        fontStyles: {
+          fontFamily: null,
+          fontSize: "14px",
+          fontWeight: null,
+          fontStyle: null,
+          textDecoration: null,
+          textAlign: null,
+        },
+      },
+      edit_4: {
+        width: 730,
+        height: 250,
+        left: 120,
+        top: 710,
+        fontStyles: {
+          fontFamily: null,
+          fontSize: "14px",
+          fontWeight: null,
+          fontStyle: null,
+          textDecoration: null,
+          textAlign: null,
+        },
+      },
+      edit_5: {
+        width: 730,
+        height: 250,
+        left: 120,
+        top: 980,
+        fontStyles: {
+          fontFamily: null,
+          fontSize: "14px",
+          fontWeight: null,
+          fontStyle: null,
+          textDecoration: null,
+          textAlign: null,
+        },
+      },
+      edit_6: {
+        width: 200,
+        height: 30,
+        left: 385,
+        top: 1250,
+        fontStyles: {
+          fontFamily: null,
+          fontSize: "12px",
+          fontWeight: null,
+          fontStyle: null,
+          textDecoration: null,
+          textAlign: null,
+        },
+      },
+    },
+  };
+
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
   return {
     props: {
+      apiHost: process.env.HOST,
       propertiesData,
+      inputsDoc,
     },
   };
 };
