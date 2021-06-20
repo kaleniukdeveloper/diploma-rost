@@ -111,7 +111,7 @@ const Diploma = ({ apiHost, propertiesData, inputsDoc }) => {
         values[el] = event.target[el].value;
       });
 
-      console.log({ properties, values });
+      console.log(JSON.stringify({ properties, values }));
       // axios
       //   .post(`${apiHost}/save-gramota`, { properties, values })
       //   .then(async ({ data }) => {
@@ -422,7 +422,6 @@ const Diploma = ({ apiHost, propertiesData, inputsDoc }) => {
                       />
                       <label
                         htmlFor="selectBackground"
-                        type="button"
                         className="c-diplom-actions-option__btn"
                       >
                         Фон
